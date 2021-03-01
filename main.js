@@ -40,22 +40,41 @@ console.log(typeof NaN)
 // * String
 console.log(typeof "hello")
 
+// Really want to get the below to work but having trouble since input is always read as a string. Going to find a workaround for now, but will leave his for reference where I was struggling.
+
+// const dataType = () => {
+//   const typeInput = document.querySelector(".type-input").value
+//   if (typeof typeInput === "boolean") {
+//     console.log(`${typeInput} is a boolean`)
+//   } else if (typeof typeInput === null || typeInput === "null") {
+//     console.log(`${typeInput} is null`)
+//   } else if (typeof typeInput === undefined || typeInput === "undefined") {
+//     console.log(`${typeInput} is undefined`)
+//   } else if (typeof typeInput === Number) {
+//     console.log(`${typeInput} is a number`)
+//   } else if (typeof typeInput === NaN || typeInput === "NaN") {
+//     console.log(`${typeInput} is NaN`)
+//   } else if (typeof typeInput === "string") {
+//     console.log(`${typeInput} is a string`)
+//   } else if (typeInput === "hello") {
+//     console.log("hi")
+//   }
+// }
+
 const dataType = () => {
   const typeInput = document.querySelector(".type-input").value
-  if (typeof typeInput === "boolean") {
-    console.log(`${typeInput} is a boolean`)
+  if (typeInput.toLowerCase() == "true" || typeInput == "false") {
+    document.getElementById("display-type").innerHTML = `${typeInput} is a boolean`
   } else if (typeof typeInput === null || typeInput === "null") {
-    console.log(`${typeInput} is null`)
-  } else if (typeof typeInput === undefined || typeInput === "undefined") {
-    console.log(`${typeInput} is undefined`)
-  } else if (typeof typeInput === Number) {
-    console.log(`${typeInput} is a number`)
-  } else if (typeof typeInput === NaN || typeInput === "NaN") {
-    console.log(`${typeInput} is NaN`)
+    document.getElementById("display-type").innerHTML = `${typeInput} is null`
+  } else if (typeof typeInput === undefined || typeInput == "") {
+    document.getElementById("display-type").innerHTML = `Input is undefined`
+  } else if (typeof parseInt(typeInput) === "number") {
+    document.getElementById("display-type").innerHTML = `${typeInput} is a number`
+  } else if (typeof typeInput === NaN || typeInput.toLowerCase() === "nan") {
+    document.getElementById("display-type").innerHTML = `${typeInput} is NaN`
   } else if (typeof typeInput === "string") {
-    console.log(`${typeInput} is a string`)
-  } else if (typeInput === "hello") {
-    console.log("hi")
+    document.getElementById("display-type").innerHTML = `${typeInput} is a string`
   }
 }
 
