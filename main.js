@@ -27,35 +27,35 @@ const stringToNum = () => {
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 // * Boolean
-typeof true
+console.log(typeof true)
 // * Null
-typeof null
+console.log(typeof null)
 // * Undefined
 let dontDefine
-typeof dontDefine
+console.log(typeof dontDefine)
 // * Number
-typeof 4
+console.log(typeof 4)
 // * NaN
 console.log(typeof NaN)
 // * String
-typeof "hello"
-
-const Type = input => {
-  if (typeof input === Boolean) {
-    console.log(`${input} is a boolean`)
-  } else if (typeof input === null) {
-    console.log(`${input} is null`)
-  }
-}
+console.log(typeof "hello")
 
 const dataType = () => {
-  const input = document.querySelector(".type-input").value
-  const type = typeof input
-  console.log(type)
-  if (input == "true" || "false") {
-    document.getElementById("display-type").innerHTML = "Boolean"
-  } else {
-    document.getElementById("display-type").innerHTML = type
+  const typeInput = document.querySelector(".type-input").value
+  if (typeof typeInput === "boolean") {
+    console.log(`${typeInput} is a boolean`)
+  } else if (typeof typeInput === null || typeInput === "null") {
+    console.log(`${typeInput} is null`)
+  } else if (typeof typeInput === undefined || typeInput === "undefined") {
+    console.log(`${typeInput} is undefined`)
+  } else if (typeof typeInput === Number) {
+    console.log(`${typeInput} is a number`)
+  } else if (typeof typeInput === NaN || typeInput === "NaN") {
+    console.log(`${typeInput} is NaN`)
+  } else if (typeof typeInput === "string") {
+    console.log(`${typeInput} is a string`)
+  } else if (typeInput === "hello") {
+    console.log("hi")
   }
 }
 
@@ -67,18 +67,26 @@ const add = (a, b) => {
 
 add(5, 2)
 
+const addInApp = () => {
+  const numberOne = parseInt(document.querySelector(".first-number").value)
+  const numberTwo = parseInt(document.querySelector(".second-number").value)
+  const sum = numberOne + numberTwo
+  const displaySum = `The sum of ${numberOne} and ${numberTwo} is ${sum}`
+  document.getElementById("display-sum").innerHTML = displaySum
+}
+
 // Write a JavaScript program that runs only when 2 things are true.
 // Write a JavaScript program that runs when 1 of 2 things are true.
 // Write a JavaScript program that runs when both things are not true.
 const ifBoth = () => {
-  if (a && b) {
-    return "both are true!"
-  } else if (c || d) {
-    return "one is true!"
-  } else if (!c || d) {
-    return "neither are true!"
-  } else {
-    return
+  const booleanOne = document.querySelector(".first-boolean").value
+  const booleanTwo = document.querySelector(".second-boolean").value
+  if (booleanOne == "true" && booleanTwo == "true") {
+    document.getElementById("display-true").innerHTML = "both are true!"
+  } else if (booleanOne == "true" || booleanTwo == "true") {
+    document.getElementById("display-true").innerHTML = "one is true!"
+  } else if (booleanOne == "false" && booleanTwo == "false") {
+    document.getElementById("display-true").innerHTML = "neither are true!"
   }
 }
 
